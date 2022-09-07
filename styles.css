@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url('bg.svg');
+  background-color: #eb2f5b;
   flex-wrap: wrap;
   margin: 0.5rem;
 }
