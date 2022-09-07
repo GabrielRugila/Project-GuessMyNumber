@@ -31,7 +31,7 @@ function reset() {
   currentScore = difficulty;
   document.querySelector('.score').textContent = difficulty;
   document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('body').style.backgroundImage = "url('bg.svg')";
+  document.querySelector('body').style.backgroundColor = "#eb2f5b";
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
 }
@@ -57,13 +57,13 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === correctNumber) {
     displayMessage('Congratulations! You have the correct number!');
     document.querySelector('.number').textContent = correctNumber;
-    document.querySelector('body').style.backgroundImage =
-      "url('bgCorrect.svg')";
+    document.querySelector('body').style.backgroundColor =
+      "#39ed69";
     if (currentScore > highscore) {
       document.querySelector('.highscore').textContent = currentScore;
     }
   } else if (guess !== correctNumber) {
-    document.querySelector('body').style.backgroundImage = "url('bgWrong.svg')";
+    document.querySelector('body').style.backgroundColor = "#c71616";
     if (currentScore > 1) {
       loseScore();
       document.querySelector('.message').textContent =
