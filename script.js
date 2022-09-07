@@ -10,9 +10,8 @@ const displayMessage = function (message) {
 
 //Scoreboard
 let currentScore = difficulty;
-document.querySelector('.score').textContent = difficulty;
-
 let highscore = 0;
+document.querySelector('.score').textContent = difficulty;
 
 function loseScore() {
   if (currentScore > 10) {
@@ -26,26 +25,26 @@ function loseScore() {
   document.querySelector('.score').textContent = currentScore;
 }
 
-// Restart
-document.querySelector('.again').addEventListener('click', function () {
+function reset() {
   difficulty = Number(document.querySelector('.difficulty').value);
   correctNumber = Math.trunc(Math.random() * difficulty) + 1;
   currentScore = difficulty;
   document.querySelector('.score').textContent = difficulty;
   document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('body').style.backgroundImage = "url('bg.svg')";
   document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+}
+
+// Restart
+document.querySelector('.again').addEventListener('click', function () {
+  reset();
 });
 
-// Number Generator
 document
   .querySelector('.selectDifficulty')
   .addEventListener('click', function () {
-    difficulty = Number(document.querySelector('.difficulty').value);
-    correctNumber = Math.trunc(Math.random() * difficulty) + 1;
-    currentScore = difficulty;
-    document.querySelector('.score').textContent = difficulty;
-    document.querySelector('body').style.backgroundImage = "url('bg.svg')";
-    document.querySelector('.message').textContent = 'Start guessing...';
+    reset();
   });
 
 // Guess checker
@@ -67,13 +66,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundImage = "url('bgWrong.svg')";
     if (currentScore > 1) {
       loseScore();
-      if (guess > correctNumber) {
-        displayMessage('Sorry, wrong number! Try a smaller number');
-      } else if (guess < correctNumber) {
-        displayMessage('Sorry, wrong number! Try a bigger number');
-      }
-    } else {
-      displayMessage('Sorry, out of points! You Lose');
+      document.querySelector('.message').textContent =
+        guess > correctNumber
+          ? 'Sorry, wrong number! Try a smaller number'
+          : 'Sorry, wrong number! Try a bigger number';
     }
   }
 });
