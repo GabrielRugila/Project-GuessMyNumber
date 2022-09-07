@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Press Start 2P', sans-serif;
+  color: #ccc;
 }
 
 body {
@@ -55,20 +56,6 @@ h1 {
   font-size: 4rem;
   font-weight: bolder;
   margin: 1.5rem;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4f0061,
-      0 0 40px #b520d6 0 0 50px #056b01, 0 0 60px #198f0f, 0 0 70px #8ffa65;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #fd4747, 0 0 40px #970303,
-      0 0 50px #490606, 0 0 60px #3a0202, 0 0 70px #9d35b4, 0 0 80px #681d79;
-  }
 }
 
 .number {
